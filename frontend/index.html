@@ -1,0 +1,95 @@
+<!-- frontend/index.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lead Finder KZ</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Lead Finder KZ</h1>
+      <p>Система поиска потенциальных клиентов для языкового центра</p>
+    </header>
+
+    <nav>
+      <button data-tab="stats" class="active">Статистика</button>
+      <button data-tab="parse">Парсинг</button>
+      <button data-tab="whatsapp">WhatsApp Checker</button>
+      <button data-tab="send">Рассылка</button>
+      <button data-tab="contacts">Контакты</button>
+    </nav>
+
+    <main>
+      <section id="tab-stats" class="tab active">
+        <h2>Статистика</h2>
+        <div id="stats-content">Загрузка...</div>
+      </section>
+
+      <section id="tab-parse" class="tab">
+        <h2>Парсинг</h2>
+        <div class="panel">
+          <h3>Telegram</h3>
+          <label>API ID:<input id="tg-api-id" type="text" /></label>
+          <label>API Hash:<input id="tg-api-hash" type="text" /></label>
+          <label>Чаты (через запятую):<input id="tg-chats" type="text" placeholder="@english_kz, @students_almaty" /></label>
+          <button id="tg-parse-btn">Запустить парсинг Telegram</button>
+          <pre id="tg-parse-log" class="log"></pre>
+        </div>
+        <div class="panel">
+          <h3>Instagram</h3>
+          <label>Хештеги (через запятую):<input id="ig-hashtags" type="text" placeholder="english.kz, языковыекурсыалматы" /></label>
+          <label>Максимум постов на хештег:<input id="ig-max-posts" type="number" value="50" /></label>
+          <button id="ig-parse-btn">Запустить парсинг Instagram</button>
+          <pre id="ig-parse-log" class="log"></pre>
+        </div>
+      </section>
+
+      <section id="tab-whatsapp" class="tab">
+        <h2>Проверка WhatsApp</h2>
+        <p>Проверит все номера из базы на наличие WhatsApp.</p>
+        <button id="wa-check-btn">Запустить проверку</button>
+        <pre id="wa-check-log" class="log"></pre>
+      </section>
+
+      <section id="tab-send" class="tab">
+        <h2>Рассылка</h2>
+        <label>Канал:
+          <select id="send-channel">
+            <option value="telegram">Telegram</option>
+            <option value="whatsapp">WhatsApp</option>
+            <option value="instagram">Instagram</option>
+          </select>
+        </label>
+        <label>Сообщение:
+          <textarea id="send-message" rows="6" placeholder="Здравствуйте, {full_name}! ..."></textarea>
+        </label>
+        <button id="send-btn">Отправить</button>
+        <pre id="send-log" class="log"></pre>
+      </section>
+
+      <section id="tab-contacts" class="tab">
+        <h2>Контакты</h2>
+        <button id="contacts-refresh">Обновить список</button>
+        <button id="contacts-export">Экспорт в CSV</button>
+        <table id="contacts-table">
+          <thead>
+            <tr>
+              <th>Имя</th>
+              <th>Источник</th>
+              <th>Телефон</th>
+              <th>Telegram</th>
+              <th>Instagram</th>
+              <th>WhatsApp</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

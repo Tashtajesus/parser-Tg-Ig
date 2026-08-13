@@ -1,0 +1,19 @@
+{
+  "name": "lead-finder-kz",
+  "version": "1.0.0",
+  "description": "Система поиска потенциальных клиентов для языкового центра",
+  "main": "backend/server.js",
+  "scripts": {
+    "dev": "cd backend && npm start",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install"
+  },
+  "keywords": [
+    "lead generation",
+    "telegram parser",
+    "instagram parser",
+    "whatsapp",
+    "kazakhstan"
+  ],
+  "author": "Tashta",
+  "license": "MIT"
+}

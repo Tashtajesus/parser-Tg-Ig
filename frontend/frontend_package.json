@@ -1,0 +1,8 @@
+{
+  "name": "lead-finder-frontend",
+  "version": "1.0.0",
+  "description": "Frontend для Lead Finder KZ",
+  "scripts": {
+    "start": "npx serve ."
+  }
+}
